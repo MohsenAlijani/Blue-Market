@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/show_all_products_fragment"
+    android:background="@color/blue_very_light"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.ShowAllProductsFragment">
+
+    <Toolbar
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/btn_all_products_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/shape_circle_button"
+            android:hint="@string/search_main"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_all_products_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="end"
+            android:background="@drawable/shape_circle_button"
+            android:src="@drawable/ic_round_close_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </Toolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_all_products"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

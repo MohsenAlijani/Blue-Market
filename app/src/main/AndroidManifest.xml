@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bluemarket">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.example.bluemarket.utils.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_round"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.BlueMarket">
+        <activity
+            android:name="com.example.bluemarket.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:label="@string/bluemarket"
+            android:theme="@style/Theme.HiMarket.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.bluemarket.MainActivity"
+            android:exported="true">
+        </activity>
+    </application>
+
+</manifest>
