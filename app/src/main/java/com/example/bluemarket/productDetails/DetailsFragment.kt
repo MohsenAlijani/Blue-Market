@@ -20,7 +20,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : MyFragment() {
 
-    //TODO: remove homeViewModel and CartViewModel and create DetailsViewModel and use it here
     val detailsViewModel: DetailsViewModel by viewModel()
     val imageLoading: ImageLoading by inject()
     val cartViewModel: CartViewModel by viewModel()
@@ -49,7 +48,6 @@ class DetailsFragment : MyFragment() {
         }
 
         val productID = args.productId
-//        homeViewModel.productId = requireArguments().getInt("productId")
 
         detailsViewModel.productDetailLiveData.observe(viewLifecycleOwner) { productList ->
             val product = productList[productID - 1]
@@ -72,7 +70,6 @@ class DetailsFragment : MyFragment() {
                 quantity = 0
             )
 
-            //TODO   What should i do with the cartList observation?
             cartViewModel.cartLiveData.observe(viewLifecycleOwner) { cartList ->
                 cartList.forEach {
                     if (it.id == product.id) {

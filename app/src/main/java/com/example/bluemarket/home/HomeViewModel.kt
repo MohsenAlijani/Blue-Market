@@ -16,7 +16,6 @@ import kotlin.random.Random
 class HomeViewModel(productRepository: ProductRepository) : MyViewModel() {
     val bannerLiveData = MutableLiveData<Product>()
     val productsLiveData = MutableLiveData<List<Product>>()
-    val allProductsLiveData = MutableLiveData<List<Product>>()
 
     init {
         Observable.interval(4, TimeUnit.SECONDS)
@@ -33,7 +32,6 @@ class HomeViewModel(productRepository: ProductRepository) : MyViewModel() {
             }).addTo(compositeDisposable)
 
 
-
         progressbarLiveData.value = true
         productRepository.getLimitedProducts(10)
             .subscribeOn(Schedulers.io())
@@ -46,21 +44,7 @@ class HomeViewModel(productRepository: ProductRepository) : MyViewModel() {
                     productsLiveData.value = t
                 }
             })
-
-        progressbarLiveData.value = true
-        productRepository.getProducts()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doFinally {
-                progressbarLiveData.value = false
-            }
-            .subscribe(object : MySingleObserver<List<Product>>(compositeDisposable) {
-                override fun onSuccess(t: List<Product>) {
-                    allProductsLiveData.value = t
-                }
-            })
     }
-
 }
 
 

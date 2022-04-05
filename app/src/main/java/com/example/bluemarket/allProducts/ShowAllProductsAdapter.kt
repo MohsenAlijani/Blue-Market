@@ -1,4 +1,4 @@
-package com.example.bluemarket.home
+package com.example.bluemarket.allProducts
 
 import android.view.LayoutInflater
 import android.view.View

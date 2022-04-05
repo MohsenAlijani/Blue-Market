@@ -6,7 +6,7 @@
     android:id="@+id/show_all_products_fragment"
     android:background="@color/blue_very_light"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.ShowAllProductsFragment">
+    tools:context=".allProducts.ShowAllProductsFragment">
 
     <Toolbar
         android:id="@+id/constraintLayout"

@@ -41,8 +41,6 @@ class CatProductsListFragment : MyFragment(), CatProductsListAdapter.OnProductIt
             showProgressBar(it)
         }
 
-        //TODO: why is this commented? never mind, use the args instead
-//        CAT = requireArguments().getString("cat").toString()
 
         catViewModel.catProductsLiveData.observe(viewLifecycleOwner) {
             val txtHeader = view.findViewById<TextView>(R.id.txt_cat_products_list_header)

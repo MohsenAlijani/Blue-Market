@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/showAllProductsFragment"
-        android:name="com.example.bluemarket.home.ShowAllProductsFragment"
+        android:name="com.example.bluemarket.allProducts.ShowAllProductsFragment"
         android:label="fragment_all_products"
         tools:layout="@layout/fragment_all_products" >
         <action

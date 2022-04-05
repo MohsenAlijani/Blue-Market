@@ -1,7 +1,7 @@
 package com.example.bluemarket.utils
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
+import com.example.bluemarket.allProducts.AllProductsViewModel
 import com.example.bluemarket.cart.CartAdapter
 import com.example.bluemarket.cart.CartViewModel
 import com.example.bluemarket.cart.repository.CartRepository
@@ -15,7 +15,10 @@ import com.example.bluemarket.category.repository.CatRepository
 import com.example.bluemarket.category.repository.CatRepositoryImpl
 import com.example.bluemarket.home.HomeProductsAdapter
 import com.example.bluemarket.home.HomeViewModel
-import com.example.bluemarket.home.ShowAllProductsAdapter
+import com.example.bluemarket.allProducts.ShowAllProductsAdapter
+import com.example.bluemarket.allProducts.dataSource.RemoteAllProductsDataSource
+import com.example.bluemarket.allProducts.repository.AllProductsRepository
+import com.example.bluemarket.allProducts.repository.AllProductsRepositoryImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import com.example.bluemarket.home.dataSource.RemoteProductDataSource
 import com.example.bluemarket.home.repository.ProductRepository
@@ -23,6 +26,9 @@ import com.example.bluemarket.home.repository.ProductRepositoryImpl
 import com.example.bluemarket.model.CartProduct
 import com.example.bluemarket.model.Product
 import com.example.bluemarket.productDetails.DetailsViewModel
+import com.example.bluemarket.productDetails.dataSource.RemoteDetailsDataSource
+import com.example.bluemarket.productDetails.repository.DetailsRepository
+import com.example.bluemarket.productDetails.repository.DetailsRepositoryImpl
 import com.example.bluemarket.retrofit.getClient
 import com.example.bluemarket.user.ProfileViewModel
 import com.example.bluemarket.user.dataSource.RemoteUserDataSource
@@ -54,7 +60,10 @@ class App : Application() {
             single { getAppDatabase(applicationContext) }
             factory<CartRepository> { CartRepositoryImpl(get()) }
             viewModel { CartViewModel(get()) }
+            factory<DetailsRepository> { DetailsRepositoryImpl(RemoteDetailsDataSource(get())) }
             viewModel { DetailsViewModel(get()) }
+            factory<AllProductsRepository> { AllProductsRepositoryImpl(RemoteAllProductsDataSource(get())) }
+            viewModel { AllProductsViewModel(get()) }
 
         }
 
