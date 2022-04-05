@@ -11,6 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class CatViewModel(val catRepository: CatRepository) : MyViewModel() {
+
     val catLiveData = MutableLiveData<List<String>>()
     val catProductsLiveData = MutableLiveData<List<Product>>()
 
@@ -42,7 +43,7 @@ class CatViewModel(val catRepository: CatRepository) : MyViewModel() {
             })
     }
 
-    fun switchCats(): Single<List<Product>> {
+    private fun switchCats(): Single<List<Product>> {
         Log.i("LOG", "switchCats: $CAT")
         return when (CAT) {
             "electronics" -> {

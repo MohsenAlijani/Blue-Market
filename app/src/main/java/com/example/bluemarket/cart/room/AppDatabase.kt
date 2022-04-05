@@ -8,7 +8,7 @@ import com.example.bluemarket.model.CartProduct
 
 
 @Database(version = 1, entities = [CartProduct::class])
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getCartDao(): CartDao
 
@@ -22,5 +22,4 @@ abstract class AppDatabase: RoomDatabase() {
             return appDatabase
         }
     }
-
 }

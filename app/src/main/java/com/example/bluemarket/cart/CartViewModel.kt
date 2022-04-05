@@ -14,9 +14,9 @@ import io.reactivex.schedulers.Schedulers
 import java.util.*
 
 @SuppressLint("CheckResult")
-class CartViewModel(val cartRepository: CartRepository): MyViewModel() {
+class CartViewModel(val cartRepository: CartRepository) : MyViewModel() {
 
-    var cart : List<CartProduct>? = null
+    var cart: List<CartProduct>? = null
     var cartProduct: CartProduct? = null
     var cartLiveData = MutableLiveData<List<CartProduct>>()
 
@@ -58,16 +58,5 @@ class CartViewModel(val cartRepository: CartRepository): MyViewModel() {
             totalCartPrice += (it.price.toFloat() * it.quantity)
         }
         return totalCartPrice
-    }
-
-    fun getSpecificProductQuantity(productId: Int): Int {
-        var productQuantity = 0
-        cart?.forEach {
-            if (it.id == productId) {
-                productQuantity = it.quantity
-            }
-        }
-//        cartProductQuantityLiveData.value = productQuantity
-        return productQuantity
     }
 }

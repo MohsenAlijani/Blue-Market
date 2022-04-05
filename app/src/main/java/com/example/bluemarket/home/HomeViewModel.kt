@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 class HomeViewModel(productRepository: ProductRepository) : MyViewModel() {
+
     val bannerLiveData = MutableLiveData<Product>()
     val productsLiveData = MutableLiveData<List<Product>>()
 

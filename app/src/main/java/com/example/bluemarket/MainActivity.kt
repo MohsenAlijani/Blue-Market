@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             R.navigation.profile_bottom_nav
         )
 
-
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
@@ -54,15 +53,10 @@ class MainActivity : AppCompatActivity() {
             containerId = R.id.nav_host_container,
             intent = intent
         )
-
         currentNavController = controller
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return currentNavController?.value?.navigateUp() ?: false
     }
-
-
 }

@@ -19,6 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 class CatFragment : MyFragment(), CatAdapter.OnCatItemClickListener {
+
     val catViewModel: CatViewModel by viewModel()
 
     override fun onCreateView(
@@ -48,7 +49,8 @@ class CatFragment : MyFragment(), CatAdapter.OnCatItemClickListener {
 
     override fun onCatItemClick(catName: String) {
         CAT = catName
-        val action: NavDirections = CatFragmentDirections.actionCatFragmentToCatProductsListFragment22()
+        val action: NavDirections =
+            CatFragmentDirections.actionCatFragmentToCatProductsListFragment22()
         findNavController().navigate(action)
     }
 }

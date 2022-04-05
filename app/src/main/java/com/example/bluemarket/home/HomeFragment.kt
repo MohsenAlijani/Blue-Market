@@ -21,13 +21,12 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-
 class HomeFragment : MyFragment(),
     HomeProductsAdapter.OnSeeAllProductsClickListener,
     HomeProductsAdapter.OnProductItemClickListener {
+
     val homeViewModel: HomeViewModel by viewModel()
     val imageLoading: ImageLoading by inject()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +44,6 @@ class HomeFragment : MyFragment(),
         }
 
         val imgBanner = view.findViewById<ImageView>(R.id.img_main_banner)
-
         homeViewModel.bannerLiveData.observe(viewLifecycleOwner) { product ->
             imageLoading.load(imgBanner, product.image)
             val animation = AlphaAnimation(0.5F, 1F)
@@ -65,8 +63,6 @@ class HomeFragment : MyFragment(),
                     HomeFragmentDirections.actionHomeFragmentToCatProductsListFragment()
                 findNavController().navigate(action)
             }
-
-
         }
 
         homeViewModel.productsLiveData.observe(viewLifecycleOwner) {

@@ -10,7 +10,7 @@ import com.example.bluemarket.R
 
 class CatAdapter(val catList: List<String>) : RecyclerView.Adapter<CatAdapter.CatViewHolder>() {
 
-    var onCatItemClickListener: OnCatItemClickListener ?= null
+    var onCatItemClickListener: OnCatItemClickListener? = null
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CatViewHolder {
         return CatViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.cat_item, p0, false))

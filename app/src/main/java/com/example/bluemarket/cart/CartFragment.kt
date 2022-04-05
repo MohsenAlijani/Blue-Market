@@ -23,7 +23,6 @@ class CartFragment : MyFragment(), CartAdapter.CartProductItemControl {
 
     val cartViewModel: CartViewModel by viewModel()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,14 +59,7 @@ class CartFragment : MyFragment(), CartAdapter.CartProductItemControl {
             val txtTotalQuantity = view.findViewById<TextView>(R.id.txt_cart_final_total_quantity)
             txtTotalQuantity?.text = cartViewModel.getShoppingCartSize().toString()
         }
-
-
     }
-
-
-//    override fun cartTotalQuantityAndPriceControl() {
-//
-//    }
 
     override fun onProductItemClick(productId: Int) {
         val action: NavDirections =
@@ -75,11 +67,9 @@ class CartFragment : MyFragment(), CartAdapter.CartProductItemControl {
         findNavController().navigate(action)
     }
 
-
     override fun onProductItemPlusClicked(cartItem: CartProduct) {
         cartItem.quantity += 1
         cartViewModel.updateProduct(cartItem)
-
     }
 
     override fun onProductItemMinusClicked(cartItem: CartProduct) {
@@ -90,13 +80,4 @@ class CartFragment : MyFragment(), CartAdapter.CartProductItemControl {
     override fun onProductItemRemoveClicked(cartItem: CartProduct) {
         cartViewModel.deleteProduct(cartItem)
     }
-
-
-//    override fun onResume() {
-//        super.onResume()
-//        if (REFRESH_CART) {
-//            NavHostFragment.findNavController(this).navigate(R.id.cartFragment)
-//        }
-//        REFRESH_CART = false
-//    }
 }

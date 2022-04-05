@@ -25,19 +25,22 @@ interface ApiService {
     fun getCategories(): Single<List<String>>
 
     @GET("products/category/electronics")
-    fun getElectronics() : Single<List<Product>>
+    fun getElectronics(): Single<List<Product>>
 
     @GET("products/category/jewelery")
-    fun getJeweleries() : Single<List<Product>>
+    fun getJeweleries(): Single<List<Product>>
 
     @GET("products/category/men's clothing")
-    fun getMenCloth() : Single<List<Product>>
+    fun getMenCloth(): Single<List<Product>>
 
     @GET("products/category/women's clothing")
-    fun getWomenCloth() : Single<List<Product>>
+    fun getWomenCloth(): Single<List<Product>>
 
     @POST("https://fakestoreapi.com/auth/login")
-    fun login(@Field("username") username: String, @Field("password") password:String): Single<Token>
+    fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Single<Token>
 
 //    @POST("https://fakestoreapi.com/users")
 //    fun register(@Field("username") username:String, @Field("password") password:String), : Single<Token>

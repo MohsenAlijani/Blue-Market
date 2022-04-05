@@ -64,13 +64,11 @@ class App : Application() {
             viewModel { DetailsViewModel(get()) }
             factory<AllProductsRepository> { AllProductsRepositoryImpl(RemoteAllProductsDataSource(get())) }
             viewModel { AllProductsViewModel(get()) }
-
         }
 
         startKoin {
             androidContext(this@App)
             modules(myModules)
         }
-
     }
 }

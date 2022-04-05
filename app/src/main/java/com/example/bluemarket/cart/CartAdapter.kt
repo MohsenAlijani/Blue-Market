@@ -32,7 +32,6 @@ class CartAdapter(var cart: List<CartProduct>, val imageLoading: ImageLoading) :
         p0.txtPrice.text = product.price
         p0.txtNumber.text = cart[p1].quantity.toString()
         p0.txtTotalPrice.text = String.format("%.2f", productTotalPrice)
-//        cartProductItemControl?.cartTotalQuantityAndPriceControl()
 
         p0.itemView.setOnClickListener {
             cartProductItemControl?.onProductItemClick(product.id)
@@ -47,10 +46,6 @@ class CartAdapter(var cart: List<CartProduct>, val imageLoading: ImageLoading) :
 
         p0.imgRemove.setOnClickListener {
             cartProductItemControl?.onProductItemRemoveClicked(cart[p1])
-//            cart.remove(cart.value?.get(p1))
-//            CartFragment.saveCart(cart)
-//            notifyItemRemoved(p1)
-//            notifyItemRangeChanged(p1, cart.size)
         }
 
         if (cart[p1].quantity > 1) {
@@ -75,21 +70,16 @@ class CartAdapter(var cart: List<CartProduct>, val imageLoading: ImageLoading) :
         val imgPlus = itemView.findViewById<ImageView>(R.id.img_cart_product_plus)
         val imgMinus = itemView.findViewById<ImageView>(R.id.img_cart_product_minus)
         val imgRemove = itemView.findViewById<ImageView>(R.id.img_cart_product_remove)
-
     }
-
 
     fun setCartProductItem(cartProductItemControl: CartProductItemControl) {
         this.cartProductItemControl = cartProductItemControl
     }
 
     interface CartProductItemControl {
-//        fun cartTotalQuantityAndPriceControl()
         fun onProductItemClick(productId: Int)
         fun onProductItemPlusClicked(cartItem: CartProduct)
         fun onProductItemMinusClicked(cartItem: CartProduct)
         fun onProductItemRemoveClicked(cartItem: CartProduct)
     }
-
-
 }

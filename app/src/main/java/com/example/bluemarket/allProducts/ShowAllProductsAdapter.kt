@@ -77,7 +77,6 @@ class ShowAllProductsAdapter(val productsList: ArrayList<Product>, val imageLoad
 
     override fun getItemCount(): Int = productsFilterList.size
 
-
     class ShowAllProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image = itemView.findViewById<ImageView>(R.id.img_all_products)
         val title = itemView.findViewById<TextView>(R.id.txt_all_products_title)

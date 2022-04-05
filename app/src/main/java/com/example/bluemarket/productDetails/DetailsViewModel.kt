@@ -9,7 +9,7 @@ import com.example.bluemarket.utils.MyViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class DetailsViewModel(detailsRepository: DetailsRepository): MyViewModel() {
+class DetailsViewModel(detailsRepository: DetailsRepository) : MyViewModel() {
     val productDetailLiveData = MutableLiveData<List<Product>>()
 
     init {

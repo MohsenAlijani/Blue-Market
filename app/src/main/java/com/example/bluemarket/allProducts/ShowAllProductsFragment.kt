@@ -44,14 +44,15 @@ class ShowAllProductsFragment : MyFragment(),
         }
 
         allProductsViewModel.allProductsLiveData.observe(viewLifecycleOwner) {
-            val adapter: ShowAllProductsAdapter by inject{ parametersOf(it) }
+            val adapter: ShowAllProductsAdapter by inject { parametersOf(it) }
             val recyclerView = view.findViewById<RecyclerView>(R.id.rv_all_products)
-            recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            recyclerView.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             recyclerView.adapter = adapter
             adapter.setListProductListener(this)
 
             val search = view.findViewById<SearchView>(R.id.btn_all_products_search)
-            search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     return false
                 }
@@ -66,7 +67,9 @@ class ShowAllProductsFragment : MyFragment(),
 
     override fun onItemClick(productId: Int) {
         val action: NavDirections =
-            ShowAllProductsFragmentDirections.actionShowAllProductsFragmentToDetailsFragment(productId = productId)
+            ShowAllProductsFragmentDirections.actionShowAllProductsFragmentToDetailsFragment(
+                productId = productId
+            )
         findNavController().navigate(action)
     }
 }

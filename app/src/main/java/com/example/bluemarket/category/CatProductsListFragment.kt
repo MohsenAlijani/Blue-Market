@@ -20,9 +20,9 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-var CAT= ""
-class CatProductsListFragment : MyFragment(), CatProductsListAdapter.OnProductItemClickListener {
+var CAT = ""
 
+class CatProductsListFragment : MyFragment(), CatProductsListAdapter.OnProductItemClickListener {
 
     val catViewModel: CatViewModel by viewModel()
 
@@ -41,13 +41,13 @@ class CatProductsListFragment : MyFragment(), CatProductsListAdapter.OnProductIt
             showProgressBar(it)
         }
 
-
         catViewModel.catProductsLiveData.observe(viewLifecycleOwner) {
             val txtHeader = view.findViewById<TextView>(R.id.txt_cat_products_list_header)
             txtHeader.text = CAT
             val recyclerView = view.findViewById<RecyclerView>(R.id.rv_cat_products_list)
-            val adapter : CatProductsListAdapter by inject { parametersOf(it) }
-            recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            val adapter: CatProductsListAdapter by inject { parametersOf(it) }
+            recyclerView.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             recyclerView.adapter = adapter
             adapter.setProductItemListener(this)
         }
@@ -60,7 +60,9 @@ class CatProductsListFragment : MyFragment(), CatProductsListAdapter.OnProductIt
 
     override fun onProductItemClicked(product: Product) {
         val action: NavDirections =
-            CatProductsListFragmentDirections.actionCatProductsListFragmentToDetailsFragment(productId = product.id)
+            CatProductsListFragmentDirections.actionCatProductsListFragmentToDetailsFragment(
+                productId = product.id
+            )
         findNavController().navigate(action)
     }
 }

@@ -65,7 +65,6 @@ class HomeProductsAdapter(val productList: List<Product>, val imageLoading: Imag
         }
     }
 
-
     class HomeProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image = itemView.findViewById<ImageView>(R.id.img_home_productList)
         val txtTitle = itemView.findViewById<TextView>(R.id.txt_home_productList_title)

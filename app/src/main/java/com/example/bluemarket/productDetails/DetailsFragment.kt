@@ -48,7 +48,6 @@ class DetailsFragment : MyFragment() {
         }
 
         val productID = args.productId
-
         detailsViewModel.productDetailLiveData.observe(viewLifecycleOwner) { productList ->
             val product = productList[productID - 1]
             imageLoading.load(image, product.image)

@@ -26,7 +26,6 @@ class CatProductsListAdapter(val productsList: List<Product>, val imageLoading: 
         imageLoading.load(p0.image, product.image)
         p0.title.text = product.title
         p0.price.text = product.price
-
         p0.itemView.setOnClickListener {
             onProductItemClickListener?.onProductItemClicked(product)
         }

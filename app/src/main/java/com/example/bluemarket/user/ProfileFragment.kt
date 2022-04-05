@@ -12,6 +12,8 @@ import com.example.bluemarket.utils.MyFragment
 import com.google.android.material.textfield.TextInputEditText
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/* Unfortunately the api server login service is not responding...
+ I will just show the signup and login procedure in app without connecting to server.*/
 
 class ProfileFragment : MyFragment() {
 
@@ -30,7 +32,8 @@ class ProfileFragment : MyFragment() {
 
         val loginView = view.findViewById<ConstraintLayout>(R.id.constraint_profile_login)
         val signUpView = view.findViewById<ConstraintLayout>(R.id.constraint_profile_signUp)
-        val signUpSuccessView = view.findViewById<ConstraintLayout>(R.id.constraint_profile_successful_signup)
+        val signUpSuccessView =
+            view.findViewById<ConstraintLayout>(R.id.constraint_profile_successful_signup)
         val loginSuccessView = view.findViewById<ConstraintLayout>(R.id.constraint_profile_welcome)
 
         val txtLoginError = view.findViewById<TextView>(R.id.txt_login_error)
